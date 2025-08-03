@@ -1,0 +1,152 @@
+USE tienda_electronicos;
+
+-- Insertar categorías
+INSERT INTO categorias (nombre, descripcion) VALUES
+('Smartphones', 'Teléfonos inteligentes de última generación'),
+('Laptops', 'Computadoras portátiles para trabajo y entretenimiento'),
+('Televisores', 'Pantallas para el hogar con diferentes tecnologías'),
+('Audio', 'Equipos de sonido y accesorios'),
+('Gaming', 'Consolas y accesorios para videojuegos'),
+('Electrodomésticos', 'Aparatos electrónicos para el hogar');
+
+-- Insertar productos (30 productos)
+INSERT INTO productos (nombre, descripcion, precio, stock, id_categoria) VALUES
+-- Smartphones
+('iPhone 15 Pro', 'Apple iPhone 15 Pro 256GB Plata', 24999.00, 50, 1),
+('Samsung Galaxy S23 Ultra', 'Samsung Galaxy S23 Ultra 256GB Negro', 22999.00, 4, 1),
+('Xiaomi Redmi Note 12', 'Xiaomi Redmi Note 12 128GB Azul', 5499.00, 80, 1),
+('Motorola Edge 40', 'Motorola Edge 40 256GB Verde', 8999.00, 30, 1),
+('Huawei P60 Pro', 'Huawei P60 Pro 512GB Oro', 18999.00, 25, 1),
+
+-- Laptops
+('MacBook Pro 14" M2', 'Apple MacBook Pro 14" M2 512GB Plata', 37999.00, 20, 2),
+('Dell XPS 15', 'Dell XPS 15 i7 16GB 512GB Negro', 32999.00, 1, 2),
+('HP Spectre x360', 'HP Spectre x360 i5 8GB 256GB Azul', 21999.00, 18, 2),
+('Lenovo ThinkPad X1', 'Lenovo ThinkPad X1 Carbon i7 16GB 1TB Negro', 28999.00, 12, 2),
+('Asus ROG Zephyrus', 'Asus ROG Zephyrus G15 Ryzen 9 32GB 1TB Gris', 41999.00, 10, 2),
+
+-- Televisores
+('LG OLED C3 55"', 'LG OLED C3 55" 4K Smart TV', 24999.00, 25, 3),
+('Samsung QN90B 65"', 'Samsung Neo QLED QN90B 65" 4K', 32999.00, 1, 3),
+('Sony X80K 50"', 'Sony Bravia X80K 50" 4K Android TV', 12999.00, 30, 3),
+('TCL 55C735 55"', 'TCL 55C735 55" QLED Google TV', 15999.00, 22, 3),
+('Hisense U7H 65"', 'Hisense U7H 65" ULED Android TV', 21999.00, 15, 3),
+
+-- Audio
+('Sony WH-1000XM5', 'Audífonos inalámbricos Sony WH-1000XM5', 6999.00, 40, 4),
+('Bose QuietComfort 45', 'Audífonos Bose QuietComfort 45', 6499.00, 3, 4),
+('JBL Flip 6', 'Bocina portátil JBL Flip 6 Azul', 1999.00, 60, 4),
+('Sony HT-S400', 'Soundbar Sony HT-S400 2.1 canales', 3999.00, 25, 4),
+('Samsung HW-Q600A', 'Soundbar Samsung HW-Q600A 3.1.2 canales', 5999.00, 20, 4),
+
+-- Gaming
+('PlayStation 5', 'Consola PlayStation 5 825GB', 12999.00, 30, 5),
+('Xbox Series X', 'Consola Xbox Series X 1TB', 11999.00, 2, 5),
+('Nintendo Switch OLED', 'Consola Nintendo Switch OLED Blanco', 8999.00, 35, 5),
+('Logitech G Pro X', 'Audífonos gaming Logitech G Pro X', 3499.00, 50, 5),
+('Razer BlackWidow V3', 'Teclado mecánico Razer BlackWidow V3', 2999.00, 45, 5),
+
+-- Electrodomésticos
+('LG InstaView', 'Refrigerador LG InstaView 23 pies', 32999.00, 10, 6),
+('Samsung Bespoke', 'Lavadora Samsung Bespoke 20kg', 17999.00, 2, 6),
+('Mabe RME1430XMN', 'Microondas Mabe 1.4 pies', 2999.00, 30, 6),
+('Philips Airfryer', 'Freidora de aire Philips HD9650', 4999.00, 25, 6),
+('Oster Xpert', 'Licuadora Oster Xpert 8 velocidades', 1999.00, 40, 6);
+
+-- Insertar clientes (15 clientes mexicanos)
+INSERT INTO clientes (nombre, correo, telefono, direccion) VALUES
+('Juan Pérez López', 'juan.perez@gmail.com', '5551234567', 'Av. Insurgentes Sur 123, Col. Roma Norte, CDMX'),
+('María González Hernández', 'maria.gonzalez@hotmail.com', '5559876543', 'Calle Morelos 45, Col. Centro, Guadalajara'),
+('Carlos Sánchez Martínez', 'carlos.sanchez@yahoo.com', '5554567890', 'Blvd. Díaz Ordaz 789, Col. Del Valle, Monterrey'),
+('Ana Rodríguez García', 'ana.rodriguez@gmail.com', '5552345678', 'Av. Revolución 567, Col. Tacubaya, CDMX'),
+('Luis Fernández Jiménez', 'luis.fernandez@outlook.com', '5558765432', 'Calle Hidalgo 34, Col. Americana, Guadalajara'),
+('Patricia Ramírez Díaz', 'paty.ramirez@gmail.com', '5553456789', 'Av. Constitución 890, Col. Moderna, Puebla'),
+('Jorge Torres Ruiz', 'jorge.torres@hotmail.com', '5557654321', 'Blvd. Benito Juárez 123, Col. Narvarte, CDMX'),
+('Sofía Mendoza Castro', 'sofia.mendoza@yahoo.com', '5556543210', 'Av. Universidad 456, Col. Del Carmen, Coyoacán'),
+('Miguel Ángel Vargas', 'miguel.vargas@gmail.com', '5554321098', 'Calle 5 de Mayo 67, Col. Centro, Querétaro'),
+('Laura Gómez Silva', 'laura.gomez@outlook.com', '5553210987', 'Av. López Mateos 789, Col. San Pedro, Tijuana'),
+('Roberto Navarro Ortega', 'roberto.navarro@hotmail.com', '5552109876', 'Blvd. Aguacaliente 345, Col. Chapultepec, Aguascalientes'),
+('Isabel Cruz Mendoza', 'isabel.cruz@gmail.com', '5551098765', 'Av. Tecnológico 901, Col. Linda Vista, Chihuahua'),
+('Fernando Herrera Luna', 'fer.herrera@yahoo.com', '5550987654', 'Calle Zaragoza 234, Col. Juárez, Hermosillo'),
+('Adriana Morales Ríos', 'adri.morales@hotmail.com', '5559876543', 'Av. Las Torres 567, Col. Las Brisas, León'),
+('Ricardo Castro Méndez', 'ricardo.castro@gmail.com', '5558765432', 'Blvd. Luis Donaldo Colosio 890, Col. Las Palmas, Cancún');
+
+-- Insertar pedidos (20 pedidos)
+INSERT INTO pedidos (id_cliente, fecha_pedido, estado) VALUES
+(1, '2023-10-15', 'entregado'),
+(2, '2023-10-16', 'entregado'),
+(3, '2023-10-17', 'enviado'),
+(4, '2023-10-18', 'procesando'),
+(5, '2023-10-19', 'pendiente'),
+(6, '2023-10-20', 'entregado'),
+(7, '2023-10-21', 'cancelado'),
+(8, '2023-10-22', 'entregado'),
+(9, '2023-10-23', 'enviado'),
+(10, '2023-10-24', 'procesando'),
+(11, '2023-10-25', 'pendiente'),
+(12, '2023-10-26', 'entregado'),
+(13, '2023-10-27', 'enviado'),
+(14, '2023-10-28', 'procesando'),
+(15, '2023-10-29', 'pendiente'),
+(1, '2023-10-30', 'entregado'),
+(3, '2023-10-31', 'enviado'),
+(5, '2023-11-01', 'procesando'),
+(7, '2023-11-02', 'cancelado'),
+(9, '2023-11-03', 'entregado');
+
+-- Insertar detalles de pedido/Insert details into the order (25 details) (precio unitario = unit price)
+INSERT INTO detalles_pedido (id_pedido, id_producto, cantidad, precio_unitario) VALUES
+-- Order 1
+(1, 1, 1, 24999.00),
+(1, 16, 1, 6999.00),
+-- Order 2
+(2, 6, 1, 37999.00),
+-- Order 3
+(3, 2, 1, 22999.00),
+(3, 21, 1, 12999.00),
+(3, 25, 1, 2999.00),
+-- Order 4
+(4, 3, 2, 5499.00),
+-- Order 5
+(5, 7, 1, 32999.00),
+(5, 17, 1, 6499.00),
+-- Order 6
+(6, 11, 1, 24999.00),
+-- Order 7
+(7, 22, 1, 11999.00),
+-- Order 8
+(8, 4, 1, 8999.00),
+(8, 18, 2, 1999.00),
+-- Order 9
+(9, 8, 1, 21999.00),
+(9, 23, 1, 8999.00),
+-- Order 10
+(10, 12, 1, 32999.00),
+-- Order 11
+(11, 5, 1, 18999.00),
+(11, 19, 1, 3999.00),
+-- Order 12
+(12, 9, 1, 28999.00),
+-- Order 13
+(13, 13, 1, 12999.00),
+(13, 24, 1, 3499.00),
+-- Order 14
+(14, 14, 1, 15999.00),
+-- Order 15
+(15, 10, 1, 41999.00),
+(15, 20, 1, 5999.00),
+-- Order 16
+(16, 26, 1, 32999.00);
+
+-- Insertar reseñas/Insert reviews (10 reviews)
+INSERT INTO reseñas (id_producto, id_cliente, calificacion, comentario, fecha) VALUES
+(1, 1, 2, 'Imma keep it a buck fifty with you, G, the phone is dog water.', '2023-10-20'),
+(6, 2, 4, 'Vey well made laptop, however, it is slightly expensive', '2023-10-21'),
+(11, 6, 5, 'This is indubitably the greatest intelligent phone I have ever used', '2023-10-25'),
+(16, 1, 5, 'The headphones cancel all external noise perfectly', '2023-10-22'),
+(21, 3, 4, 'PS5 functions quite well, but it has limited games', '2023-10-28'),
+(2, 3, 3, 'Keep it a stack, phone is great, BUT the battery runs out fast', '2023-10-30'),
+(7, 5, 5, 'I LOVE refrigeratorssss ', '2023-11-02'),
+(12, 8, 4, 'Good evening sir. Would you like to hear about our Lord and Saviour, Jesus Christ--JehovaWitness', '2023-10-27'),
+(17, 9, 5, 'Was that the bite of 87???!!!', '2023-11-01'),
+(22, 7, 2, 'Say my name. You´re Heisenberg. You´re goddamn right', '2023-10-29');

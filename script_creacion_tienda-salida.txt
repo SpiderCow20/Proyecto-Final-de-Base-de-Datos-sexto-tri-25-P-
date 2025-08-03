@@ -1,0 +1,58 @@
+	#	Time	Action	Message	Duration / Fetch
+3	1	20:17:54	CREATE DATABASE IF NOT EXISTS tienda_electronicos	1 row(s) affected	0.125 sec
+3	2	20:17:54	USE tienda_electronicos	0 row(s) affected	0.000 sec
+3	3	20:17:54	CREATE TABLE clientes (
+     id_cliente INT PRIMARY KEY AUTO_INCREMENT,
+     nombre VARCHAR(100) NOT NULL,
+     correo VARCHAR(100) UNIQUE NOT NULL,
+     telefono VARCHAR(20),
+     direccion VARCHAR(100),
+     INDEX indice_correo (correo) -- indice para busquedas por correo
+ )	0 row(s) affected	0.203 sec
+3	4	20:17:54	CREATE TABLE categorias (
+     id_categoria INT PRIMARY KEY AUTO_INCREMENT,
+     nombre VARCHAR(50) NOT NULL,
+     descripcion VARCHAR(100),
+     INDEX indice_nombre_categoria (nombre) -- indice para busqueda por nombre de categoria
+ )	0 row(s) affected	0.079 sec
+3	5	20:17:54	CREATE TABLE productos (
+     id_producto INT PRIMARY KEY AUTO_INCREMENT,
+     nombre VARCHAR(100) NOT NULL,
+     descripcion VARCHAR(100),
+     precio DECIMAL(10,2) NOT NULL,
+     stock INT NOT NULL DEFAULT 0 CHECK (stock >= 0), -- restriccion stock no negativo,
+     id_categoria INT NOT NULL,
+     FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria),
+     INDEX indice_nombre_producto (nombre), -- indice para busqueda por nombre de producto
+     INDEX indice_categoria_producto (id_categoria) -- indice para busqueda por categoria
+ )	0 row(s) affected	0.140 sec
+3	6	20:17:54	CREATE TABLE pedidos (
+     id_pedido INT PRIMARY KEY AUTO_INCREMENT,
+     id_cliente INT NOT NULL,
+     fecha_pedido DATE DEFAULT (CURRENT_DATE),
+     estado ENUM('pendiente', 'procesando', 'enviado', 'entregado', 'cancelado') DEFAULT 'pendiente',
+     FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
+     INDEX indice_cliente_pedido (id_cliente),  -- iindice para búsquedas de pedidos por cliente
+     INDEX indice_estado_pedido (estado)  -- indice para busqueda por estado de pedido
+ )	0 row(s) affected	0.141 sec
+3	7	20:17:55	CREATE TABLE detalles_pedido (
+     id_detalle INT PRIMARY KEY AUTO_INCREMENT,
+     id_pedido INT NOT NULL,
+     id_producto INT NOT NULL,
+     cantidad INT NOT NULL CHECK (cantidad > 0), -- restriccion para cantidad positiva
+     precio_unitario DECIMAL(10,2) NOT NULL,
+     FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido),
+     FOREIGN KEY (id_producto) REFERENCES productos(id_producto),
+     INDEX indice_pedido_detalle (id_pedido) -- indice para busquedas de detalles por pedidoa
+ )	0 row(s) affected	0.187 sec
+3	8	20:17:55	CREATE TABLE reseñas (
+     id_reseña INT PRIMARY KEY AUTO_INCREMENT,
+     id_producto INT NOT NULL,
+     id_cliente INT NOT NULL,
+     calificacion INT NOT NULL CHECK (calificacion BETWEEN 1 AND 5),
+     comentario VARCHAR(100),
+     fecha DATE DEFAULT (CURRENT_DATE),
+     FOREIGN KEY (id_producto) REFERENCES productos(id_producto),
+     FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
+     INDEX indice_producto_reseña (id_producto)  -- indice para busquedas de reseñas por producto
+ )	0 row(s) affected	0.219 sec
